@@ -5,7 +5,7 @@ const getAll = async () => {
     .join('projects as p', 't.project_id', 'p.project_id')
     .select('t.*', 'p.project_name', 'p.project_description')
     const results = []
-    for(let i = 0; i < tasks.length; i++){
+    for(let i = 0; i < tasks.length; i++) {
         let result = {
             task_id: tasks[i].task_id,
             task_description: tasks[i].task_description,
@@ -21,7 +21,7 @@ const getAll = async () => {
 
 const create = async (task) => {
     const [id] = await db('tasks').insert(task)
-    return db('tasks as t')
+    return db('tasks as tasks')
     .join(
         'projects as p',
         't.project_id',
@@ -32,4 +32,7 @@ const create = async (task) => {
     .first()
 }
 
-module.exports = {getAll, create}
+module.exports = {
+    getAll,
+    create
+}

@@ -20,4 +20,7 @@ const create = async (project) => {
     return db('projects').where('project_id', id).first()
 }
 
-module.exports = {getAll, create}
+module.exports = {
+    getAll,
+    create
+}

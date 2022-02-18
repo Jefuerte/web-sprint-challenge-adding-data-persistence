@@ -9,4 +9,7 @@ const create = async (resource) => {
     return db('resources').where('resource_id', id).first()
 }
 
-module.exports = {getAll, create}
+module.exports = {
+    getAll, 
+    create
+}
